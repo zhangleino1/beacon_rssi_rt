@@ -1,0 +1,117 @@
+<scene version="2.1.0">
+    <!-- ================================================================== -->
+    <!-- 室内公寓电磁材质与视觉配色定义 (ITU-R P.2040-3 / Sionna RT 1.2.2)  -->
+    <!-- ================================================================== -->
+
+    <!-- 钢筋混凝土承重墙/外墙 -->
+    <bsdf type="itu-radio-material" id="mat-concrete">
+        <string name="type" value="concrete"/>
+        <float name="thickness" value="0.24"/>
+        <rgb name="color" value="0.52, 0.54, 0.56"/>
+    </bsdf>
+
+    <!-- 室内石膏板/轻质砖隔断墙 -->
+    <bsdf type="itu-radio-material" id="mat-plasterboard">
+        <string name="type" value="plasterboard"/>
+        <float name="thickness" value="0.12"/>
+        <rgb name="color" value="0.88, 0.87, 0.84"/>
+    </bsdf>
+
+    <!-- 室内实木复合地板 -->
+    <bsdf type="itu-radio-material" id="mat-floorboard">
+        <string name="type" value="plywood"/>
+        <float name="thickness" value="0.08"/>
+        <rgb name="color" value="0.72, 0.56, 0.38"/>
+    </bsdf>
+
+    <!-- 厨卫与阳台大理石/瓷砖地面 -->
+    <bsdf type="itu-radio-material" id="mat-marble">
+        <string name="type" value="marble"/>
+        <float name="thickness" value="0.08"/>
+        <rgb name="color" value="0.82, 0.83, 0.85"/>
+    </bsdf>
+
+    <!-- 实木家具（衣柜、餐桌、床架、电视柜） -->
+    <bsdf type="itu-radio-material" id="mat-wood">
+        <string name="type" value="wood"/>
+        <float name="thickness" value="0.04"/>
+        <rgb name="color" value="0.48, 0.32, 0.18"/>
+    </bsdf>
+
+    <!-- 软包家具（沙发、床垫、被褥、靠垫） -->
+    <bsdf type="itu-radio-material" id="mat-ceiling-board">
+        <string name="type" value="ceiling_board"/>
+        <float name="thickness" value="0.10"/>
+        <rgb name="color" value="0.32, 0.52, 0.68"/>
+    </bsdf>
+
+    <!-- 门窗玻璃、淋浴房隔断、阳台护栏 -->
+    <bsdf type="itu-radio-material" id="mat-glass">
+        <string name="type" value="glass"/>
+        <float name="thickness" value="0.012"/>
+        <rgb name="color" value="0.45, 0.78, 0.92"/>
+    </bsdf>
+
+    <!-- 家电金属表面（冰箱、电视机、洗衣机、燃气灶水槽） -->
+    <bsdf type="itu-radio-material" id="mat-metal">
+        <string name="type" value="metal"/>
+        <float name="thickness" value="0.02"/>
+        <rgb name="color" value="0.25, 0.27, 0.30"/>
+    </bsdf>
+
+    <!-- 卫浴洁具与厨房石材台面 -->
+    <bsdf type="itu-radio-material" id="mat-ceramic">
+        <string name="type" value="marble"/>
+        <float name="thickness" value="0.05"/>
+        <rgb name="color" value="0.93, 0.94, 0.95"/>
+    </bsdf>
+
+    <!-- ================================================================== -->
+    <!-- 3D 房间网格组件                                                    -->
+    <!-- ================================================================== -->
+    <shape type="ply" id="mesh-concrete_structure" name="mesh-concrete_structure">
+        <string name="filename" value="meshes/concrete_structure.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-concrete" name="bsdf"/>
+    </shape>
+    <shape type="ply" id="mesh-interior_walls" name="mesh-interior_walls">
+        <string name="filename" value="meshes/interior_walls.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-plasterboard" name="bsdf"/>
+    </shape>
+    <shape type="ply" id="mesh-wood_floor" name="mesh-wood_floor">
+        <string name="filename" value="meshes/wood_floor.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-floorboard" name="bsdf"/>
+    </shape>
+    <shape type="ply" id="mesh-tile_floor" name="mesh-tile_floor">
+        <string name="filename" value="meshes/tile_floor.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-marble" name="bsdf"/>
+    </shape>
+    <shape type="ply" id="mesh-wood_furniture" name="mesh-wood_furniture">
+        <string name="filename" value="meshes/wood_furniture.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-wood" name="bsdf"/>
+    </shape>
+    <shape type="ply" id="mesh-soft_furniture" name="mesh-soft_furniture">
+        <string name="filename" value="meshes/soft_furniture.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-ceiling-board" name="bsdf"/>
+    </shape>
+    <shape type="ply" id="mesh-glass_windows_doors" name="mesh-glass_windows_doors">
+        <string name="filename" value="meshes/glass_windows_doors.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-glass" name="bsdf"/>
+    </shape>
+    <shape type="ply" id="mesh-metal_appliances" name="mesh-metal_appliances">
+        <string name="filename" value="meshes/metal_appliances.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-metal" name="bsdf"/>
+    </shape>
+    <shape type="ply" id="mesh-ceramic_fixtures" name="mesh-ceramic_fixtures">
+        <string name="filename" value="meshes/ceramic_fixtures.ply"/>
+        <boolean name="face_normals" value="true"/>
+        <ref id="mat-ceramic" name="bsdf"/>
+    </shape>
+</scene>

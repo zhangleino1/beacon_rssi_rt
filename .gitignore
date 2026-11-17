@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+build/
+dist/
+
+# GUI / Polyscope / ImGui runtime state
+.polyscope.ini
+imgui.ini
+
+# NVIDIA OptiX / CUDA cache
+.optix_cache/
+optix_cache/
+
+# Large rendered videos, intermediate audio & temp frames
+output/*.mp4
+output/*.ass
+output/check_*.png
+output/audio/
+
+# Local preview snapshots
+scenes/*_preview*.png
+scenes/*_clean*.png
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
